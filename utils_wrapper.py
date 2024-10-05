@@ -104,7 +104,7 @@ def load_vllm():
     args.quantization=quantization
     args.gpu_memory_utilization=gpu_memory_utilization
     args.dtype=dtype
-    args.max_num_seqs=20  # batch最大20条样本
+    args.max_num_seqs=20
     os.environ['VLLM_USE_MODELSCOPE']='True'
     engine=AsyncLLMEngine.from_engine_args(args)
     return generation_config,tokenizer,stop_words_ids,engine

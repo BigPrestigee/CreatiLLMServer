@@ -49,12 +49,11 @@ css = """
     padding: 10px;
 }
 """
-# 调用chat_streaming函数并将结果返回给chatbot
+# 调用 chat_api 函数并将结果返回给chatbot
 def chat(query, history):
     for response in chat_api(query,history):
         yield '', history+[(query,response)]
     history.append((query,response))
-    # print("对话历史:", history)
     while len(history) > max_history:
         history.pop(0)
 
